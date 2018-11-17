@@ -9,6 +9,9 @@ import javax.swing.*;
  *
  * @author up863207
  */
+/** 
+ * hello
+ */
 public class main {
     public static void main(String args[]){
         JFrame frame = new JFrame();
