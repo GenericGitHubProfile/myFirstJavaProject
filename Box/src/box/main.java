@@ -15,6 +15,7 @@ public class main {
         JButton b1 = new JButton("Click");
         b1.setBounds(130, 100, 100, 40);//x, y, width, height.
         //Hello
+        //Attempt 2 with extra pezazz
         frame.add(b1);
         frame.setSize(400, 500);
         frame.setLayout(null);
