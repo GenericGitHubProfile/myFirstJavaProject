@@ -23,7 +23,7 @@ public class Type5 extends ReinfBase{
         if(sealable){
             cost+=(baseCost*0.1);
         }
-        //Type 3 box always has 2 colours, therefore we add 15% of the base cost to the final cost.
+        //Type 5 box always has 2 colours, therefore we add 15% of the base cost to the final cost.
         cost+=(baseCost*0.15);
         //Type 5 always has Reinforced Bottoms, therefore we add 13% of the base cost to the final cost.
         cost+=(baseCost*0.13);

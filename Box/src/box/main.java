@@ -9,22 +9,16 @@ import javax.swing.*;
  *
  * @author up863207
  */
-/** 
- * hello
- */
-/** 
- * hello
- */
 public class main {
     public static void main(String args[]){
         JFrame frame = new JFrame();
         JButton b1 = new JButton("Click");
-        b1.setBounds(130, 100, 100, 40);//x, y, width, height.
-        //Hello
-        //Attempt 2 with extra pezazz
+        b1.setBounds(10, 10, 80, 40);//x, y, width, height.
+        
         frame.add(b1);
         frame.setSize(400, 500);
         frame.setLayout(null);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
