@@ -10,7 +10,7 @@ package box;
  * @author up863207
  */
 public class colour1 extends Box{
-    protected String colour1;
+    protected String colour1 = "";
     //Part of the class hierarchy which adds a colour to the box, for type2 and above.
     /**
      * @param inColour1 enters the first colour, for Boxes of Type 2 and above.

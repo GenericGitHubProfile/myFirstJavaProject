@@ -10,10 +10,10 @@ package box;
  * @author up863207
  */
 public class Box {
-    protected int grade;
-    protected boolean sealable;
-    protected double cost;
-    protected double height, width, length;
+    protected int grade = 1;
+    protected boolean sealable = false;
+    protected double cost = 0;
+    protected double height = 0, width = 0, length = 0;
     protected double[] prices;
     /**
      * @param args the command line arguments

@@ -13,7 +13,8 @@ public class ReinfBase extends colour2{
     /**
      * @param inReinfBase enters whether the box has a reinforced base or not.
      */
-    protected boolean reinfBase;
+    //Part of the class hierarchy which adds the Reinforced Base attribute for Types 4 and 5
+    protected boolean reinfBase = false;
     public ReinfBase(double inHeight, double inWidth, double inLength, boolean inSealed, String inColour1, String inColour2, boolean inReinfBase){
         super(inHeight, inWidth, inLength, inSealed, inColour1, inColour2);
         reinfBase = inReinfBase;
