@@ -14,7 +14,7 @@ public class main {
         JFrame frame = new JFrame();
         JButton b1 = new JButton("Click");
         b1.setBounds(130, 100, 100, 40);//x, y, width, height.
-        
+        //Hello
         frame.add(b1);
         frame.setSize(400, 500);
         frame.setLayout(null);
