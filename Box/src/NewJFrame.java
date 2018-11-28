@@ -43,13 +43,14 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -153,8 +154,6 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setBackground(new java.awt.Color(0, 0, 0));
-
         jLabel8.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
         jLabel8.setText("Colour 1");
 
@@ -189,6 +188,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 jTextField4ActionPerformed(evt);
             }
         });
+
+        jScrollPane2.setViewportView(jList1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,7 +231,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
@@ -245,7 +246,7 @@ public class NewJFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
@@ -280,7 +281,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
@@ -319,17 +320,23 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Main Button code, should probably rename stuff but hey
-        if(jTextField1.getText().equals("") || jTextField3.getText().equals("") || jTextField5.getText().equals("")){
+        if(jTextField1.getText().equals("") || jTextField3.getText().equals("") || jTextField5.getText().equals("") || jTextField4.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Invalid Width, Height or Length");
             return;
         }
         double width = Double.valueOf((String)jTextField1.getText());
         double height = Double.valueOf((String)jTextField3.getText());
         double length = Double.valueOf((String)jTextField5.getText());
+        int quantity = Integer.parseInt((String)jTextField4.getText());
         if(0 >= width || 0 >= height || 0 >= length){
-            JOptionPane.showMessageDialog(null, "Please enter values above 0");
-        } else {
+            JOptionPane.showMessageDialog(null, "Box dimentions must be above 0");
+        }
+        else if(0 >= quantity){
+            JOptionPane.showMessageDialog(null, "Must have at least one box");
+        }
+        else {
             JOptionPane.showMessageDialog(null, "Thank you for the good values");
+            
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -377,6 +384,10 @@ public class NewJFrame extends javax.swing.JFrame {
         jComboBox2.setEnabled(false);
         jComboBox3.setEnabled(false);
         jComboBox4.setEnabled(false);
+        jTextField1.setText("0.0");
+        jTextField3.setText("0.0");
+        jTextField5.setText("0.0");
+        jTextField4.setText("0");
     }//GEN-LAST:event_formWindowOpened
 
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
@@ -461,7 +472,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    protected javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
