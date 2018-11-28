@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -240,25 +243,64 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        int grade = (int)jComboBox1.getSelectedItem();
-        int noColours = (int)jComboBox2.getSelectedItem();
-        double width = Double.valueOf(jTextField1.getText());
-        double height = Double.valueOf(jTextField3.getText());
-        double length = Double.valueOf(jTextField5.getText());
+        if(jTextField1.getText().equals("") || jTextField3.getText().equals("") || jTextField5.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Invalid Width, Height or Length");
+            return;
+        }
+        double width = Double.valueOf((String)jTextField1.getText());
+        double height = Double.valueOf((String)jTextField3.getText());
+        double length = Double.valueOf((String)jTextField5.getText());
+        if(0 >= width || 0 >= height || 0 >= length){
+            JOptionPane.showMessageDialog(null, "Please enter values above 0");
+        } else {
+            JOptionPane.showMessageDialog(null, "Thank you for the good values");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
         // TODO add your handling code here:
-//        jTextField5.setEnabled(false);
-        if(jComboBox1.getSelectedItem() == "1"){
-            jCheckBox1.setEnabled(false);
-            jCheckBox2.setEnabled(false);
-            jCheckBox3.setEnabled(false);
-        } else {
-            jCheckBox1.setEnabled(true);
-            jCheckBox2.setEnabled(true);
-            jCheckBox3.setEnabled(true);
+        int grade = 0;
+        switch(grade = Integer.parseInt((String)jComboBox1.getSelectedItem())){
+            case 1:
+                jCheckBox1.setEnabled(false);
+                jCheckBox2.setEnabled(false);
+                jCheckBox3.setEnabled(false);
+                jComboBox2.setEnabled(false);
+                break;
+            case 2:
+                jCheckBox1.setEnabled(true);
+                jCheckBox2.setEnabled(true);
+                jCheckBox3.setEnabled(false);
+                jComboBox2.setEnabled(true);
+                break;
+            case 3:
+                jCheckBox1.setEnabled(true);
+                jCheckBox2.setEnabled(true);
+                jCheckBox3.setEnabled(true);
+                jComboBox2.setEnabled(true);
+                break;
+            case 4:
+                jCheckBox1.setEnabled(true);
+                jCheckBox2.setEnabled(true);
+                jCheckBox3.setEnabled(true);
+                jComboBox2.setEnabled(true);
+                break;
+            case 5:
+                jCheckBox1.setEnabled(true);
+                jCheckBox2.setEnabled(true);
+                jCheckBox3.setEnabled(true);
+                jComboBox2.setEnabled(true);
+                break;
         }
+//        if(jComboBox1.getSelectedItem() == "1"){
+//            jCheckBox1.setEnabled(false);
+//            jCheckBox2.setEnabled(false);
+//            jCheckBox3.setEnabled(false);
+//        } else {
+//            jCheckBox1.setEnabled(true);
+//            jCheckBox2.setEnabled(true);
+//            jCheckBox3.setEnabled(true);
+//        }
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     /**
