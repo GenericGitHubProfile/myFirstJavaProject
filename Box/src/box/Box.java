@@ -10,6 +10,8 @@ package box;
  * @author up863207
  */
 public class Box {
+    //creates variables accessible from entire package
+    //might change to private and create get and set methods.
     protected int grade = 1;
     protected boolean sealable = false;
     protected double cost = 0;
