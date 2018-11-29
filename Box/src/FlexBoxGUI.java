@@ -112,7 +112,7 @@ public class FlexBoxGUI extends javax.swing.JFrame {
         });
 
         sealableCheck.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        sealableCheck.setText("Sealable");
+        sealableCheck.setText("Sealable top");
         sealableCheck.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sealableCheck.setPreferredSize(new java.awt.Dimension(185, 24));
 
@@ -232,7 +232,8 @@ public class FlexBoxGUI extends javax.swing.JFrame {
                                         .addComponent(lengthText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(heightText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(addBoxButton)
@@ -240,8 +241,7 @@ public class FlexBoxGUI extends javax.swing.JFrame {
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(quantityText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(126, 329, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,21 +320,26 @@ public class FlexBoxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_noColoursComboActionPerformed
 
     private void addBoxButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBoxButtonActionPerformed
-        //Main Button code, should probably rename stuff but hey
+        //Main Button code
+        //Checks whether there is anything inside the typeable attributes.
         if(widthText.getText().equals("") || lengthText.getText().equals("") || heightText.getText().equals("") || quantityText.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Invalid Width, Height or Length");
+            JOptionPane.showMessageDialog(null, "Invalid Dimentions or amount");
             return;
         }
+        //Sets up local variables so we don't need to constantly type them
         double width = Double.valueOf((String)widthText.getText());
         double height = Double.valueOf((String)lengthText.getText());
         double length = Double.valueOf((String)heightText.getText());
         int quantity = Integer.parseInt((String)quantityText.getText());
+        //Message promting user to have logical dimentions of the Box.
         if(0 >= width || 0 >= height || 0 >= length){
             JOptionPane.showMessageDialog(null, "Box dimentions must be above 0");
         }
+        //Custom message for quantity
         else if(0 >= quantity){
             JOptionPane.showMessageDialog(null, "Must have at least one box");
         }
+        //Until anything else is done, tells user that the values have successfully validated.
         else {
             JOptionPane.showMessageDialog(null, "Thank you for the good values");
             
@@ -342,35 +347,35 @@ public class FlexBoxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_addBoxButtonActionPerformed
 
     private void gradeComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_gradeComboItemStateChanged
+        //gets Grade from ComboBox, then checks the value
         int grade = 0;
         switch(grade = Integer.parseInt((String)gradeCombo.getSelectedItem())){
             case 1:
+                //Grade 1 Boxes cannot have Colours or Reinforced Bottoms and Corners
+                //The set index sets the colours comboBox to 0, preventing the user from editing colours when disallowed.
                 noColoursCombo.setSelectedIndex(0);
-                sealableCheck.setEnabled(false);
                 reinfBotCheck.setEnabled(false);
                 reinfCorCheck.setEnabled(false);
                 noColoursCombo.setEnabled(false);
                 break;
             case 2:
-                sealableCheck.setEnabled(true);
+                //Grade 2 Boxes can have colours, but cannot have Reinforced Corners.
                 reinfBotCheck.setEnabled(true);
                 reinfCorCheck.setEnabled(false);
                 noColoursCombo.setEnabled(true);
                 break;
+            //Grade 3 and above can have all attributes, so simply allow editing for all the rest of the case clauses.
             case 3:
-                sealableCheck.setEnabled(true);
                 reinfBotCheck.setEnabled(true);
                 reinfCorCheck.setEnabled(true);
                 noColoursCombo.setEnabled(true);
                 break;
             case 4:
-                sealableCheck.setEnabled(true);
                 reinfBotCheck.setEnabled(true);
                 reinfCorCheck.setEnabled(true);
                 noColoursCombo.setEnabled(true);
                 break;
             case 5:
-                sealableCheck.setEnabled(true);
                 reinfBotCheck.setEnabled(true);
                 reinfCorCheck.setEnabled(true);
                 noColoursCombo.setEnabled(true);
@@ -379,7 +384,7 @@ public class FlexBoxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_gradeComboItemStateChanged
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        sealableCheck.setEnabled(false);
+        //Sets default varibales and prevents editing of attributes that are incompatible with a Grade 1 box.
         reinfBotCheck.setEnabled(false);
         reinfCorCheck.setEnabled(false);
         noColoursCombo.setEnabled(false);
@@ -400,17 +405,22 @@ public class FlexBoxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_colour2ComboActionPerformed
 
     private void noColoursComboItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_noColoursComboItemStateChanged
+        //controls editing of colours.
+        //gets noColours from noColours comboBox.
         int noColours = 0;
         switch(noColours = Integer.parseInt((String)noColoursCombo.getSelectedItem())){
             case 0:
+                //0 colours means neither user cannot select any colours.
                 colour1Combo.setEnabled(false);
                 colour2Combo.setEnabled(false);
                 break;
             case 1:
+                //1 colour means user can only select a single colour.
                 colour1Combo.setEnabled(true);
                 colour2Combo.setEnabled(false);
                 break;
             case 2:
+                //2 colours means suer can select 2 colours.
                 colour1Combo.setEnabled(true);
                 colour2Combo.setEnabled(true);
                 break;
