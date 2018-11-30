@@ -15,7 +15,7 @@ public abstract class Box {
     protected int grade = 1;
     protected boolean sealable = false, colour1 = false, colour2 = false, reinfBase = false, reinfCor = false;
     protected double height = 0, width = 0, length = 0, cost = 0;
-    protected double[] prices;
+    protected double[] prices = {0.55, 0.65, 0.82, 0.98, 1.5};
     /**
      * @param args the command line arguments
      * @param inHeight sets height of the box
@@ -35,35 +35,40 @@ public abstract class Box {
         width = inWidth;
         length = inLength;
         sealable = inSealed;
-        double[] prices = {0.55, 0.65, 0.82, 0.98, 1.5};
     }
     public Box(double inHeight, double inWidth, double inLength, boolean inSealed, boolean inColour1){
         height = inHeight;
         width = inWidth;
         length = inLength;
         sealable = inSealed;
-        double[] prices = {0.55, 0.65, 0.82, 0.98, 1.5};
+        colour1 = inColour1;
     }
     public Box(double inHeight, double inWidth, double inLength, boolean inSealed, boolean inColour1, boolean inColour2){
         height = inHeight;
         width = inWidth;
         length = inLength;
         sealable = inSealed;
-        double[] prices = {0.55, 0.65, 0.82, 0.98, 1.5};
+        colour1 = inColour1;
+        colour2 = inColour2;
     }
     public Box(double inHeight, double inWidth, double inLength, boolean inSealed, boolean inColour1, boolean inColour2, boolean inReinfBase){
         height = inHeight;
         width = inWidth;
         length = inLength;
         sealable = inSealed;
-        double[] prices = {0.55, 0.65, 0.82, 0.98, 1.5};
+        colour1 = inColour1;
+        colour2 = inColour2;
+        reinfBase = inReinfBase;
     }
     public Box(double inHeight, double inWidth, double inLength, boolean inSealed, boolean inColour1, boolean inColour2, boolean inReinfBase, boolean inReinfCor){
         height = inHeight;
         width = inWidth;
         length = inLength;
         sealable = inSealed;
-        double[] prices = {0.55, 0.65, 0.82, 0.98, 1.5};        
+        colour1 = inColour1;
+        colour2 = inColour2;
+        reinfBase = inReinfBase;
+        reinfCor = inReinfCor;
     }
     public abstract double calculateCost();
 }
