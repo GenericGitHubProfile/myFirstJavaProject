@@ -335,7 +335,7 @@ public class FlexBoxGUI extends javax.swing.JFrame {
             int quantity = Integer.parseInt((String)quantityText.getText());
             //Sets up local variables so we don't need to constantly type them
             //Message promting user to have logical dimentions of the Box.
-            if(0.5 >= width || 0.5 >= height || 0.5 >= length || 10 <= width || 10 <= height || 10 <= length){
+            if(0.5 > width || 0.5 > height || 0.5 > length || 10 <= width || 10 <= height || 10 <= length){
                 JOptionPane.showMessageDialog(null, "Box dimentions must be between 0.5 and 10", "Invalid inputs", JOptionPane.ERROR_MESSAGE);
                 return;
             }
@@ -346,7 +346,27 @@ public class FlexBoxGUI extends javax.swing.JFrame {
             }
             //Until anything else is done, tells user that the values have successfully validated.
             else {
-                JOptionPane.showConfirmDialog(null, "Do you wish to confirm this Box?");
+                int response = JOptionPane.showConfirmDialog(null, "Do you wish to confirm this Box?");
+                switch(response){
+                    case 0:
+                        System.out.println("accepted");
+                        lengthText.setText("0.0");
+                        heightText.setText("0.0");
+                        widthText.setText("0.0");
+                        reinfBotCheck.setSelected(false);
+                        reinfCorCheck.setSelected(false);
+                        //TODO, actually return the values;
+                        
+                        break;
+                    case 1:
+                        System.out.println("resetting values");
+                        lengthText.setText("0.0");
+                        heightText.setText("0.0");
+                        widthText.setText("0.0");
+                        reinfBotCheck.setSelected(false);
+                        reinfCorCheck.setSelected(false);
+                        break;
+                }
             }
         }
         catch(Exception e){

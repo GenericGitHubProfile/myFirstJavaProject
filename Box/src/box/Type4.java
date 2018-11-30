@@ -9,8 +9,8 @@ package box;
  *
  * @author up863207
  */
-public class Type4 extends ReinfBase{
-    public Type4(double inHeight, double inWidth, double inLength, boolean inSealed, String inColour1, String inColour2, boolean inReinfBase){
+public class Type4 extends Box{
+    public Type4(double inHeight, double inWidth, double inLength, boolean inSealed, boolean inColour1, boolean inColour2, boolean inReinfBase){
     super(inHeight, inWidth, inLength, inSealed, inColour1, inColour2, inReinfBase);
     }
     

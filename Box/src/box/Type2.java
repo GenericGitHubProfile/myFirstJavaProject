@@ -9,8 +9,8 @@ package box;
  *
  * @author up863207
  */
-public class Type2 extends colour1{
-    public Type2(double inHeight, double inWidth, double inLength, boolean inSealed, String inColour1){
+public class Type2 extends Box{
+    public Type2(double inHeight, double inWidth, double inLength, boolean inSealed, boolean inColour1){
         super(inHeight, inWidth, inLength, inSealed, inColour1);
     }
     
