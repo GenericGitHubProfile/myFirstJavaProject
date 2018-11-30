@@ -362,13 +362,16 @@ public class FlexBoxGUI extends javax.swing.JFrame {
             //The set index sets the colours comboBox to 0, preventing the user from editing colours when disallowed.
                 noColoursCombo.setSelectedIndex(0);
                 reinfBotCheck.setEnabled(false);
+                reinfBotCheck.setSelected(false);
                 reinfCorCheck.setEnabled(false);
+                reinfCorCheck.setSelected(false);
                 noColoursCombo.setEnabled(false);
                 break;
             case 2:
             //Grade 2 Boxes can have colours, but cannot have Reinforced Corners.
                 reinfBotCheck.setEnabled(true);
                 reinfCorCheck.setEnabled(false);
+                reinfCorCheck.setSelected(false);
                 noColoursCombo.setEnabled(true);
                 break;
             //Grade 3 and above can have all attributes, so simply allow editing for all the rest of the case clauses.
