@@ -9,7 +9,7 @@ package box;
  *
  * @author up863207
  */
-public class ReinfBase extends colour2{
+public abstract class ReinfBase extends colour2{
     /**
      * @param inReinfBase enters whether the box has a reinforced base or not.
      */

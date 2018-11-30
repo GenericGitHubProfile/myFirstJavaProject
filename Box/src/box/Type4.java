@@ -24,9 +24,8 @@ public class Type4 extends ReinfBase{
             cost+=(baseCost*0.1);
         }
         //Type 4 box always has 2 colours, therefore we add 15% of the base cost to the final cost.
-        cost+=(baseCost*0.15);
         //Type 4 box always has a Reinforced Bottom, therefore we add 13% of the base cost to the final cost.
-        cost+=(baseCost*0.13);
+        cost+=(baseCost*0.28);
         return cost;  
     }
 }

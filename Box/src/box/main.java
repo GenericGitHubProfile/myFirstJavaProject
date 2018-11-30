@@ -11,14 +11,7 @@ import javax.swing.*;
  */
 public class main {
     public static void main(String args[]){
-        JFrame frame = new JFrame();
-        JButton b1 = new JButton("Click");
-        b1.setBounds(10, 10, 80, 40);//x, y, width, height.
-        
-        frame.add(b1);
-        frame.setSize(400, 500);
-        frame.setLayout(null);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        FlexBoxGUI objUI = new FlexBoxGUI();
+        objUI.setVisible(true);
     }
 }

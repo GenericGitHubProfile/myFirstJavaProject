@@ -1,3 +1,5 @@
+package box;
+
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -326,6 +328,12 @@ public class FlexBoxGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Invalid Dimentions or amount");
             return;
         }
+        try{
+            
+        }
+        catch(Exception e){
+            
+        }
         //Sets up local variables so we don't need to constantly type them
         double width = Double.valueOf((String)widthText.getText());
         double height = Double.valueOf((String)lengthText.getText());
@@ -342,7 +350,6 @@ public class FlexBoxGUI extends javax.swing.JFrame {
         //Until anything else is done, tells user that the values have successfully validated.
         else {
             JOptionPane.showMessageDialog(null, "Thank you for the good values");
-            
         }
     }//GEN-LAST:event_addBoxButtonActionPerformed
 
@@ -351,15 +358,15 @@ public class FlexBoxGUI extends javax.swing.JFrame {
         int grade = 0;
         switch(grade = Integer.parseInt((String)gradeCombo.getSelectedItem())){
             case 1:
-                //Grade 1 Boxes cannot have Colours or Reinforced Bottoms and Corners
-                //The set index sets the colours comboBox to 0, preventing the user from editing colours when disallowed.
+            //Grade 1 Boxes cannot have Colours or Reinforced Bottoms and Corners
+            //The set index sets the colours comboBox to 0, preventing the user from editing colours when disallowed.
                 noColoursCombo.setSelectedIndex(0);
                 reinfBotCheck.setEnabled(false);
                 reinfCorCheck.setEnabled(false);
                 noColoursCombo.setEnabled(false);
                 break;
             case 2:
-                //Grade 2 Boxes can have colours, but cannot have Reinforced Corners.
+            //Grade 2 Boxes can have colours, but cannot have Reinforced Corners.
                 reinfBotCheck.setEnabled(true);
                 reinfCorCheck.setEnabled(false);
                 noColoursCombo.setEnabled(true);

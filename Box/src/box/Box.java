@@ -9,7 +9,7 @@ package box;
  *
  * @author up863207
  */
-public class Box {
+public abstract class Box {
     //creates variables accessible from entire package
     //might change to private and create get and set methods.
     protected int grade = 1;
@@ -33,16 +33,5 @@ public class Box {
         sealable = inSealed;
         double[] prices = {0.55, 0.65, 0.82, 0.98, 1.5};
     }
-    public double calculateCost(){
-        double[] prices = {0.55, 0.65, 0.82, 0.98, 1.5};
-        //Cost calculated by square metre.
-        //Therefore does 2 times each side, to get the overall surface area.
-        //Then multiplied by the cost of each grade to get the overall cost.
-        cost = (2*(height*width)+2*(height+length)+2*(width*height))*prices[grade+1];
-        if(sealable){
-            //Sealable top adds 10% to the costs
-            cost*=1.1;
-        }
-        return cost;
-    }
+    public abstract double calculateCost();
 }
