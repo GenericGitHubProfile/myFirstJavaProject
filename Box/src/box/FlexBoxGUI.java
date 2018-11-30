@@ -324,32 +324,33 @@ public class FlexBoxGUI extends javax.swing.JFrame {
     private void addBoxButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBoxButtonActionPerformed
         //Main Button code
         //Checks whether there is anything inside the typeable attributes.
-        if(widthText.getText().equals("") || lengthText.getText().equals("") || heightText.getText().equals("") || quantityText.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Invalid Dimentions or amount");
-            return;
-        }
         try{
-            
+            if(widthText.getText().equals("") || lengthText.getText().equals("") || heightText.getText().equals("") || quantityText.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Invalid Dimentions or amount");
+                return;
+            }
+            double width = Double.valueOf((String)widthText.getText());
+            double height = Double.valueOf((String)lengthText.getText());
+            double length = Double.valueOf((String)heightText.getText());
+            int quantity = Integer.parseInt((String)quantityText.getText());
+            //Sets up local variables so we don't need to constantly type them
+            //Message promting user to have logical dimentions of the Box.
+            if(0.5 >= width || 0.5 >= height || 0.5 >= length || 10 <= width || 10 <= height || 10 <= length){
+                JOptionPane.showMessageDialog(null, "Box dimentions must be between 0.5 and 10", "Invalid inputs", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            //Custom message for quantity
+            else if(0 >= quantity){
+                JOptionPane.showMessageDialog(null, "Must have at least one box", "Invalid inputs", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            //Until anything else is done, tells user that the values have successfully validated.
+            else {
+                JOptionPane.showConfirmDialog(null, "Do you wish to confirm this Box?");
+            }
         }
         catch(Exception e){
-            
-        }
-        //Sets up local variables so we don't need to constantly type them
-        double width = Double.valueOf((String)widthText.getText());
-        double height = Double.valueOf((String)lengthText.getText());
-        double length = Double.valueOf((String)heightText.getText());
-        int quantity = Integer.parseInt((String)quantityText.getText());
-        //Message promting user to have logical dimentions of the Box.
-        if(0 >= width || 0 >= height || 0 >= length){
-            JOptionPane.showMessageDialog(null, "Box dimentions must be above 0");
-        }
-        //Custom message for quantity
-        else if(0 >= quantity){
-            JOptionPane.showMessageDialog(null, "Must have at least one box");
-        }
-        //Until anything else is done, tells user that the values have successfully validated.
-        else {
-            JOptionPane.showMessageDialog(null, "Thank you for the good values");
+            JOptionPane.showMessageDialog(null, "please enter a positive number", "Invalid Inputs", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_addBoxButtonActionPerformed
 
@@ -362,13 +363,16 @@ public class FlexBoxGUI extends javax.swing.JFrame {
             //The set index sets the colours comboBox to 0, preventing the user from editing colours when disallowed.
                 noColoursCombo.setSelectedIndex(0);
                 reinfBotCheck.setEnabled(false);
+                reinfBotCheck.setSelected(false);
                 reinfCorCheck.setEnabled(false);
+                reinfCorCheck.setSelected(false);
                 noColoursCombo.setEnabled(false);
                 break;
             case 2:
             //Grade 2 Boxes can have colours, but cannot have Reinforced Corners.
                 reinfBotCheck.setEnabled(true);
                 reinfCorCheck.setEnabled(false);
+                reinfCorCheck.setSelected(false);
                 noColoursCombo.setEnabled(true);
                 break;
             //Grade 3 and above can have all attributes, so simply allow editing for all the rest of the case clauses.
@@ -441,38 +445,7 @@ public class FlexBoxGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FlexBoxGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FlexBoxGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FlexBoxGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FlexBoxGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FlexBoxGUI().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBoxButton;
